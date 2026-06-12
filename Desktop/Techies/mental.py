@@ -2,12 +2,13 @@ import streamlit as st
 import joblib
 import numpy as np
 import pandas as pd
+import os
 
+base_path = os.path.dirname(__file__)
 
-
-model = joblib.load('mental_health_model.pkl')
-encoders = joblib.load('encoders.pkl')
-le_target = joblib.load('le_target.pkl')
+model = joblib.load(os.path.join(base_path, 'mental_health_model.pkl'))
+encoders = joblib.load(os.path.join(base_path, 'encoders.pkl'))
+le_target = joblib.load(os.path.join(base_path, 'le_target.pkl'))
 
 
 st.set_page_config(page_title = "Mental Health Predictor", page_icon = "🧠", layout = "wide" )
